@@ -1,16 +1,16 @@
 #pragma once
 #include <vector>
 #include <thread>
+#include <functional>
+#include <queue>
 
-class Server {
-protected:
+class ThreadPool {
     bool terminate = false;
     std::vector<std::thread> threads;
-    int port;
-
+    std::queue<std::function<void()>> jobs;
 public:
-    Server();
-
+    explicit ThreadPool(const std::function<void()>& job);
+    void Stop();
 };
 
 

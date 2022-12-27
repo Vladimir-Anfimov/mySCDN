@@ -1,8 +1,10 @@
-//
-// Created by vladimir on 18.12.2022.
-//
+#pragma once
+#include <cstdarg>
 
-#ifndef PROXY_PRINT_H
-#define PROXY_PRINT_H
-
-#endif //PROXY_PRINT_H
+namespace Utils::Print
+{
+    void handle_print(const char* print_type, const char *format, va_list args);
+    void handle_error(const char *msg, ...);
+    void handle_warning(const char *msg, ...);
+    void handle_log(const char *msg, ...);
+}

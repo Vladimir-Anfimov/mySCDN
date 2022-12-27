@@ -1,14 +1,11 @@
-//
-// Created by vladimir on 18.12.2022.
-//
+#pragma once
+#include <cstdarg>
 
-#ifndef NODE_PRINT_H
-#define NODE_PRINT_H
+namespace Utils::Print
+{
+    void handle_print(const char* print_type, const char *format, va_list args);
+    void handle_error(const char *msg, ...);
+    void handle_warning(const char *msg, ...);
+    void handle_log(const char *msg, ...);
+}
 
-
-class Print {
-
-};
-
-
-#endif //NODE_PRINT_H
