@@ -79,6 +79,12 @@ build CMakeFiles/Proxy.dir/HttpCommunication.cpp.o: CXX_COMPILER__Proxy_Debug /m
   OBJECT_DIR = CMakeFiles/Proxy.dir
   OBJECT_FILE_DIR = CMakeFiles/Proxy.dir
 
+build CMakeFiles/Proxy.dir/ProxyServer.cpp.o: CXX_COMPILER__Proxy_Debug /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Proxy/ProxyServer.cpp || cmake_object_order_depends_target_Proxy
+  DEP_FILE = CMakeFiles/Proxy.dir/ProxyServer.cpp.o.d
+  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++17
+  OBJECT_DIR = CMakeFiles/Proxy.dir
+  OBJECT_FILE_DIR = CMakeFiles/Proxy.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Proxy
@@ -87,7 +93,7 @@ build CMakeFiles/Proxy.dir/HttpCommunication.cpp.o: CXX_COMPILER__Proxy_Debug /m
 #############################################
 # Link the executable Proxy
 
-build Proxy: CXX_EXECUTABLE_LINKER__Proxy_Debug CMakeFiles/Proxy.dir/main.cpp.o CMakeFiles/Proxy.dir/Print.cpp.o CMakeFiles/Proxy.dir/Server.cpp.o CMakeFiles/Proxy.dir/ServerConfig.cpp.o CMakeFiles/Proxy.dir/HttpCommunication.cpp.o
+build Proxy: CXX_EXECUTABLE_LINKER__Proxy_Debug CMakeFiles/Proxy.dir/main.cpp.o CMakeFiles/Proxy.dir/Print.cpp.o CMakeFiles/Proxy.dir/Server.cpp.o CMakeFiles/Proxy.dir/ServerConfig.cpp.o CMakeFiles/Proxy.dir/HttpCommunication.cpp.o CMakeFiles/Proxy.dir/ProxyServer.cpp.o
   FLAGS = -pthread -g
   OBJECT_DIR = CMakeFiles/Proxy.dir
   POST_BUILD = :

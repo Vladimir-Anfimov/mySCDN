@@ -2,32 +2,12 @@
 #include <unistd.h>
 #include "Server.h"
 #include "Print.h"
-#include "HttpCommunication.h"
 
 using namespace Utils::Print;
 
 Server::Server(int port): ThreadPool<ConnectionType>(), ServerConfig(port) {
 }
 
-void Server::process_event(ConnectionType client) {
-    auto communication = HttpCommunication(client);
-    try {
-        std::string message = communication.read_message();
-        handle_log("Message %s\n", message.c_str());
-        communication.write_message("hei hei hei\n");
-    }
-    catch (std::exception& exp)
-    {
-        handle_warning("%s\n", exp.what());
-        communication.write_message(exp.what());
-    }
-}
-
-Server *Server::get_instance(int port) {
-    if(server_instance == nullptr)
-        server_instance = new Server(port);
-    return server_instance;
-}
 
 void Server::start_listening() {
     auto address_length = sizeof(get_sockaddr_in());

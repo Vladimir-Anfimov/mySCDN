@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Server.h"
+#include "ProxyServer.h"
 
 
 int main() {
-    auto server = Server::get_instance(9999);
+    auto server = new ProxyServer(9999);
     server->start_listening();
 }
