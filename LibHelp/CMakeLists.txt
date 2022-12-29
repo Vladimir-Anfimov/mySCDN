@@ -13,6 +13,9 @@ set(SOURCE_FILES main.cpp
         ServerConfig.h
         ServerConfig.cpp
         HttpCommunication.cpp
-        HttpCommunication.h)
+        HttpCommunication.h
+        TcpCommunication.h
+        TcpCommunication.cpp)
 
 add_library(LibHelp ${SOURCE_FILES})
+#add_executable(LibHelp ${SOURCE_FILES})

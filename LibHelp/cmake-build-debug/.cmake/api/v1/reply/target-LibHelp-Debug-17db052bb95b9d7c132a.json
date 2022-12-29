@@ -1,8 +1,9 @@
 {
+	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "Node"
+			"path" : "libLibHelp.a"
 		}
 	],
 	"backtrace" : 1,
@@ -10,8 +11,7 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"target_link_libraries"
+			"add_library"
 		],
 		"files" : 
 		[
@@ -25,13 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 7,
+				"line" : 20,
 				"parent" : 0
 			}
 		]
@@ -42,7 +36,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-Os -DNDEBUG -fdiagnostics-color=always"
+					"fragment" : "-pthread -g -fdiagnostics-color=always"
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -61,33 +55,16 @@
 			[
 				0,
 				1,
-				3
+				4,
+				7,
+				8,
+				11
 			]
 		}
 	],
-	"id" : "Node::@6890427a1f51a3e7e1df",
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "-Os -DNDEBUG",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "",
-				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-lsqlite3",
-				"role" : "libraries"
-			}
-		],
-		"language" : "CXX"
-	},
-	"name" : "Node",
-	"nameOnDisk" : "Node",
+	"id" : "LibHelp::@6890427a1f51a3e7e1df",
+	"name" : "LibHelp",
+	"nameOnDisk" : "libLibHelp.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -101,7 +78,10 @@
 			[
 				0,
 				1,
-				3
+				4,
+				7,
+				8,
+				11
 			]
 		},
 		{
@@ -109,7 +89,11 @@
 			"sourceIndexes" : 
 			[
 				2,
-				4
+				3,
+				5,
+				6,
+				9,
+				10
 			]
 		}
 	],
@@ -124,17 +108,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Database.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Database.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "Print.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -142,7 +115,56 @@
 			"backtrace" : 1,
 			"path" : "Print.h",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "ThreadPool.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Server.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Server.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "ServerConfig.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "ServerConfig.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "HttpCommunication.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "HttpCommunication.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "TcpCommunication.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "TcpCommunication.cpp",
+			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "EXECUTABLE"
+	"type" : "STATIC_LIBRARY"
 }

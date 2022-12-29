@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-MinSizeRel-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.24"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "MinSizeRel",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Node::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Node-Debug-79c681f068411fd05d65.json",
+					"jsonFile" : "target-Node-MinSizeRel-93c34b36d6c51fb3ce04.json",
 					"name" : "Node",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node/cmake-build-debug",
+		"build" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node/cmake-build-minsizerel",
 		"source" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node"
 	},
 	"version" : 

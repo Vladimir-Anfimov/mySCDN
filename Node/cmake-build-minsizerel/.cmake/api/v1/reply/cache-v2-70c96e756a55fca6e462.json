@@ -1126,6 +1126,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "LIBHELP_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+		},
+		{
 			"name" : "Node_BINARY_DIR",
 			"properties" : 
 			[
@@ -1160,6 +1172,54 @@
 			],
 			"type" : "STATIC",
 			"value" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node"
+		},
+		{
+			"name" : "Proxy_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node/cmake-build-minsizerel"
+		},
+		{
+			"name" : "Proxy_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Proxy_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node"
+		},
+		{
+			"name" : "TINYHELP_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

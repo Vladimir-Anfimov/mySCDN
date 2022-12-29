@@ -79,6 +79,12 @@ build CMakeFiles/LibHelp.dir/HttpCommunication.cpp.o: CXX_COMPILER__LibHelp_Rele
   OBJECT_DIR = CMakeFiles/LibHelp.dir
   OBJECT_FILE_DIR = CMakeFiles/LibHelp.dir
 
+build CMakeFiles/LibHelp.dir/TcpCommunication.cpp.o: CXX_COMPILER__LibHelp_Release /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/LibHelp/TcpCommunication.cpp || cmake_object_order_depends_target_LibHelp
+  DEP_FILE = CMakeFiles/LibHelp.dir/TcpCommunication.cpp.o.d
+  FLAGS = -pthread -O3 -DNDEBUG -fdiagnostics-color=always -std=gnu++17
+  OBJECT_DIR = CMakeFiles/LibHelp.dir
+  OBJECT_FILE_DIR = CMakeFiles/LibHelp.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target LibHelp
@@ -87,7 +93,7 @@ build CMakeFiles/LibHelp.dir/HttpCommunication.cpp.o: CXX_COMPILER__LibHelp_Rele
 #############################################
 # Link the static library libLibHelp.a
 
-build libLibHelp.a: CXX_STATIC_LIBRARY_LINKER__LibHelp_Release CMakeFiles/LibHelp.dir/main.cpp.o CMakeFiles/LibHelp.dir/Print.cpp.o CMakeFiles/LibHelp.dir/Server.cpp.o CMakeFiles/LibHelp.dir/ServerConfig.cpp.o CMakeFiles/LibHelp.dir/HttpCommunication.cpp.o
+build libLibHelp.a: CXX_STATIC_LIBRARY_LINKER__LibHelp_Release CMakeFiles/LibHelp.dir/main.cpp.o CMakeFiles/LibHelp.dir/Print.cpp.o CMakeFiles/LibHelp.dir/Server.cpp.o CMakeFiles/LibHelp.dir/ServerConfig.cpp.o CMakeFiles/LibHelp.dir/HttpCommunication.cpp.o CMakeFiles/LibHelp.dir/TcpCommunication.cpp.o
   LANGUAGE_COMPILE_FLAGS = -pthread -O3 -DNDEBUG
   OBJECT_DIR = CMakeFiles/LibHelp.dir
   POST_BUILD = :
