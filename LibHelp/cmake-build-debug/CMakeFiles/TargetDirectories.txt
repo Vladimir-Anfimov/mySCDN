@@ -1,0 +1,3 @@
+/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/LibHelp/cmake-build-debug/CMakeFiles/LibHelp.dir
+/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/LibHelp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/LibHelp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
