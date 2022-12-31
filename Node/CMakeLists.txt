@@ -13,11 +13,11 @@ add_executable(
         Infrastructure/TcpServer.h
         Infrastructure/TcpServer.cpp
         DataLayer/CacheRepository.h
-        DTO/CacheRetrieveDto.h
+        DTO/CacheDto.h
         Common/Mapper.h
         BusinessLayer/CacheService.cpp
         Common/Command.h
-        DTO/CacheCreateDto.h DataLayer/ExternalCacheRepository.h DTO/ExternalCacheRetrieveDto.h DTO/ExternalCacheCreateDto.h)
+        DTO/CacheUpsertDto.h)
 
 find_package(TinyHelp REQUIRED)
 include_directories(${LIBHELP_INCLUDE_DIR})
