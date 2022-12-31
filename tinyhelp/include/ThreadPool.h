@@ -51,11 +51,13 @@ void ThreadPool<TData>::queue_data(TData data) {
 template<typename TData>
 void ThreadPool<TData>::execute_work() {
     TData event_data;
+
     while (!end_execution) {
         std::unique_lock<std::mutex> lock_queue(data_queue_mutex);
         data_queue_condition_variable.wait(lock_queue, [&] {
             return !data_queue.empty() || end_execution;
         });
+
         if (!data_queue.empty()) {
             event_data = data_queue.front();
             data_queue.pop();

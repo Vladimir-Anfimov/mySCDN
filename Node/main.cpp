@@ -1,15 +1,13 @@
 #include <iostream>
-#include "DTO/CacheUpsertDto.h"
-#include "DataLayer/CacheRepository.h"
+#include "./Infrastructure/TcpServer.h"
+#include "Print.h"
+
+using namespace Utils::Print;
 
 int main(int argc, char* argv[]) {
-
-    auto obj = CacheUpsertDto(
-            "url=germania&content=germania e cool&available_until=69696&port=22");
-
-    auto repo = CacheRepository();
-
-//    repo.insert(obj);
-    auto result = repo.find_by_value("port", 22);
-    std::cout<<result->to_query_string();
+    if(argc<2)
+        handle_error("Port is missing from args.");
+    int node_port = atoi(argv[1]), proxy_port = 9000;
+    auto server = new TcpServer(node_port, proxy_port);
+    server->start_listening();
 }

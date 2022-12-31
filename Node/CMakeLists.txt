@@ -15,9 +15,11 @@ add_executable(
         DataLayer/CacheRepository.h
         DTO/CacheDto.h
         Common/Mapper.h
-        BusinessLayer/CacheService.cpp
         Common/Command.h
-        DTO/CacheUpsertDto.h)
+        DTO/CacheUpsertDto.h
+        BusinessLayer/SearchService.h
+        BusinessLayer/SearchService.cpp
+        Infrastructure/RecurrentPing.h)
 
 find_package(TinyHelp REQUIRED)
 include_directories(${LIBHELP_INCLUDE_DIR})

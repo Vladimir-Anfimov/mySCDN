@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-add_executable(Proxy main.cpp ProxyServer.cpp)
+add_executable(Proxy main.cpp ProxyServer.cpp Node.h Command.h)
 
 find_package(TinyHelp REQUIRED)
 include_directories(${LIBHELP_INCLUDE_DIR})

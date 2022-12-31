@@ -15,7 +15,7 @@ std::string HttpCommunication::read_message() const {
     return extract_content(message);
 }
 
-std::string HttpCommunication::extract_content(const std::string &message) const {
+std::string HttpCommunication::extract_content(const std::string &message) {
     std::string content = "";
     if(!is_http_message(message)) {
         throw std::runtime_error("Request path is not correctly formulated for a HTTP request.");

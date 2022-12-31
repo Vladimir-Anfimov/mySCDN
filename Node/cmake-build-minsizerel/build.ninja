@@ -70,8 +70,8 @@ build CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o: CXX_COMPILER__Node_Min
   OBJECT_DIR = CMakeFiles/Node.dir
   OBJECT_FILE_DIR = CMakeFiles/Node.dir/Infrastructure
 
-build CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/BusinessLayer/CacheService.cpp || cmake_object_order_depends_target_Node
-  DEP_FILE = CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o.d
+build CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/BusinessLayer/SearchService.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o.d
   FLAGS = -pthread -Os -DNDEBUG -fdiagnostics-color=always -std=gnu++2a
   INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
   OBJECT_DIR = CMakeFiles/Node.dir
@@ -85,7 +85,7 @@ build CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o: CXX_COMPILER__Node_M
 #############################################
 # Link the executable Node
 
-build Node: CXX_EXECUTABLE_LINKER__Node_MinSizeRel CMakeFiles/Node.dir/main.cpp.o CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o | /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
+build Node: CXX_EXECUTABLE_LINKER__Node_MinSizeRel CMakeFiles/Node.dir/main.cpp.o CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o | /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
   FLAGS = -pthread -Os -DNDEBUG
   LINK_LIBRARIES = "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a"  -lsqlite3
   OBJECT_DIR = CMakeFiles/Node.dir

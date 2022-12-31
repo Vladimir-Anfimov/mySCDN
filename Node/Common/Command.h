@@ -1,6 +1,7 @@
 #pragma once
 #include "StandardCommunication.h"
 #include <string>
+#include <cstring>
 
 class Command {
     static bool starts_with(const std::string& haystack, const std::string &needle)
@@ -12,11 +13,20 @@ class Command {
                 return false;
         return true;
     }
+
 public:
     static bool is_search(const std::string& command)
     {
         return starts_with(command, StandardCommunication::Search);
     }
+    static std::string get_url_from_search_command(const std::string& command)
+    {
+        std::string url;
+        for(int i = strlen(StandardCommunication::Search); i< command.size();i++)
+            url.push_back(command[i]);
+        return url;
+    }
+
     static bool is_upload(const std::string& command)
     {
         return starts_with(command, StandardCommunication::Upload);

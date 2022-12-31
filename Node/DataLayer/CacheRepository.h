@@ -19,7 +19,7 @@ public:
     CacheDto* find_by_value(const std::string& param_name, const T& value);
 
     void update(const CacheUpsertDto &cache_item);
-    CacheRepository();
+    explicit CacheRepository();
     ~CacheRepository();
 };
 
@@ -84,10 +84,11 @@ CacheDto* CacheRepository::find_by_value(const std::string& param_name, const T&
                           nullptr) != SQLITE_OK)
         throw std::runtime_error("Error when trying to execute: " + sql_command);
 
+    CacheDto* dto_result = nullptr;
+
     if(sqlite3_step(result) == SQLITE_ROW)
     {
-
-        return new CacheDto(sqlite3_column_int(result, 0),
+        dto_result = new CacheDto(sqlite3_column_int(result, 0),
                                             (const char*)sqlite3_column_text(result, 1),
                                             (const char*)sqlite3_column_text(result, 2),
                                             sqlite3_column_int(result, 3),
@@ -95,7 +96,7 @@ CacheDto* CacheRepository::find_by_value(const std::string& param_name, const T&
     }
 
     sqlite3_finalize(result);
-    return nullptr;
+    return dto_result;
 }
 
 template <class T>
