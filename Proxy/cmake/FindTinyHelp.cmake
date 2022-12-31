@@ -7,6 +7,7 @@ find_path(LIBHELP_INCLUDE_DIR
         ServerConfig.h
         ThreadPool.h
         TcpCommunication.h
+        Client.h
         PATH_SUFFIXES include
         PATHS ${FIND_TINYHELP_PATHS})
 

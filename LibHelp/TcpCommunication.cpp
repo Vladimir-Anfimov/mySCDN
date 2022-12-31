@@ -22,10 +22,10 @@ std::string TcpCommunication::read_message() const {
 }
 
 void TcpCommunication::write_message(const std::string &message) const {
-    char response[MESSAGE_MAX_BUFFER_SIZE];
-    sprintf(response, write_pattern.c_str(), message.size()+1, message.c_str());
+    if(message.size() > MESSAGE_MAX_BUFFER_SIZE)
+        throw std::runtime_error("The message that has to be returned from the server is too long.");
 
-    if(write(client, response, strlen(response) + 1) < 0)
+    if(write(client, message.c_str(), message.size() + 1) < 0)
         throw std::runtime_error("Failed to write message back to client");
 }
 

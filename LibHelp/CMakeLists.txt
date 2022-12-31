@@ -4,7 +4,7 @@ project(LibHelp)
 set(CMAKE_CXX_FLAGS -pthread)
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCE_FILES main.cpp
+set(SOURCE_FILES
         Print.cpp
         Print.h
         ThreadPool.h
@@ -15,7 +15,10 @@ set(SOURCE_FILES main.cpp
         HttpCommunication.cpp
         HttpCommunication.h
         TcpCommunication.h
-        TcpCommunication.cpp)
+        TcpCommunication.cpp
+        Client.h
+        Client.cpp
+        StandardCommunication.h)
 
 add_library(LibHelp ${SOURCE_FILES})
 #add_executable(LibHelp ${SOURCE_FILES})

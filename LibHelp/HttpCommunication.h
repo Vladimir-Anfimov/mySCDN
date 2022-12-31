@@ -9,4 +9,7 @@ private:
 public:
     explicit HttpCommunication(int client);
     std::string read_message() const override;
+    void write_message(const std::string& message) const override;
+
+    bool static is_http_message(const std::string& message);
 };

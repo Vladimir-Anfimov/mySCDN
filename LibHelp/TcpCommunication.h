@@ -5,7 +5,6 @@
 class TcpCommunication {
 protected:
     int client;
-    std::string write_pattern = "%s";
     constexpr static int MESSAGE_MAX_BUFFER_SIZE = 2048;
 public:
     explicit TcpCommunication(int client);

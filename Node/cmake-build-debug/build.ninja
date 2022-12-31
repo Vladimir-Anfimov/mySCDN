@@ -51,17 +51,31 @@ build cmake_object_order_depends_target_Node: phony || CMakeFiles/Node.dir
 
 build CMakeFiles/Node.dir/main.cpp.o: CXX_COMPILER__Node_Debug /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/main.cpp || cmake_object_order_depends_target_Node
   DEP_FILE = CMakeFiles/Node.dir/main.cpp.o.d
-  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++17
+  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++2a
   INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
   OBJECT_DIR = CMakeFiles/Node.dir
   OBJECT_FILE_DIR = CMakeFiles/Node.dir
 
-build CMakeFiles/Node.dir/Database.cpp.o: CXX_COMPILER__Node_Debug /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/Database.cpp || cmake_object_order_depends_target_Node
-  DEP_FILE = CMakeFiles/Node.dir/Database.cpp.o.d
-  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++17
+build CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o: CXX_COMPILER__Node_Debug /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/DataLayer/DatabaseContext.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o.d
+  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++2a
   INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
   OBJECT_DIR = CMakeFiles/Node.dir
-  OBJECT_FILE_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/DataLayer
+
+build CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o: CXX_COMPILER__Node_Debug /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/Infrastructure/TcpServer.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o.d
+  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/Infrastructure
+
+build CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o: CXX_COMPILER__Node_Debug /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/BusinessLayer/CacheService.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o.d
+  FLAGS = -pthread -g -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/BusinessLayer
 
 
 # =============================================================================
@@ -71,7 +85,7 @@ build CMakeFiles/Node.dir/Database.cpp.o: CXX_COMPILER__Node_Debug /media/vladim
 #############################################
 # Link the executable Node
 
-build Node: CXX_EXECUTABLE_LINKER__Node_Debug CMakeFiles/Node.dir/main.cpp.o CMakeFiles/Node.dir/Database.cpp.o | /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
+build Node: CXX_EXECUTABLE_LINKER__Node_Debug CMakeFiles/Node.dir/main.cpp.o CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o CMakeFiles/Node.dir/BusinessLayer/CacheService.cpp.o | /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
   FLAGS = -pthread -g
   LINK_LIBRARIES = "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a"  -lsqlite3
   OBJECT_DIR = CMakeFiles/Node.dir
