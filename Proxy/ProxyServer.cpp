@@ -44,7 +44,7 @@ std::string ProxyServer::process_command(TcpCommunication* communication, std::s
     if(http)
     {
         auto command_node = std::string(StandardCommunication::Search) +
-                HttpCommunication::extract_content(command);
+                                  HttpCommunication::extract_content(command);
         return round_robin_process(command_node);
     }
 
@@ -85,7 +85,7 @@ std::string ProxyServer::round_robin_process(const std::string &command) {
 std::string ProxyServer::ping_process(const std::string &command) {
     int node_port = Command::get_port_from_command(command);
     bool found = false;
-    std::unique_lock<std::mutex> nodes_lock(mutex_nodes);
+    std::lock_guard<std::mutex> nodes_lock(mutex_nodes);
 
     for(auto& node : nodes)
     {
@@ -98,9 +98,10 @@ std::string ProxyServer::ping_process(const std::string &command) {
     }
     if(!found)
         nodes.emplace_back(node_port, time(nullptr));
-    nodes_lock.unlock();
 
-    return StandardCommunication::Success;
+    std::string available_nodes_string = get_available_nodes_string();
+
+    return StandardCommunication::Success + available_nodes_string;
 }
 
 void ProxyServer::recurrent_node_check() {
@@ -120,9 +121,10 @@ void ProxyServer::recurrent_node_check() {
             nodes_guard.unlock();
 
             std::string message = "Available nodes: ";
-            if(nodes.empty()) message += "None";
-            for(const auto& node : nodes)
-                message+= std::to_string(node.port) +" ";
+            if(nodes.empty())
+                message += "None";
+            else
+                message += get_available_nodes_string();
 
             printf("\033[0;31m");
             handle_log("%s", message.c_str());
@@ -131,6 +133,14 @@ void ProxyServer::recurrent_node_check() {
             std::this_thread::sleep_for(std::chrono::seconds (interval_seconds));
         }
     }).detach();
+}
+
+std::string ProxyServer::get_available_nodes_string() {
+    std::string nodes_list_string = "";
+
+    for(const auto& node : nodes)
+        nodes_list_string+= std::to_string(node.port) +" ";
+    return nodes_list_string;
 }
 
 

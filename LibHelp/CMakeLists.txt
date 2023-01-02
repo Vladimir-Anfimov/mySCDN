@@ -18,7 +18,7 @@ set(SOURCE_FILES
         TcpCommunication.cpp
         Client.h
         Client.cpp
-        StandardCommunication.h)
+        StandardCommunication.h main.cpp)
 
 add_library(LibHelp ${SOURCE_FILES})
 #add_executable(LibHelp ${SOURCE_FILES})

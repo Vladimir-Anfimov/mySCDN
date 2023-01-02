@@ -37,9 +37,8 @@ public:
 using namespace Utils::Print;
 
 int main(int argc, char* argv[]) {
-    if(argc < 2)
-        handle_error("Port is missing from arguments");
-    int port = atoi(argv[1]);
+
+    int port = 9990;
     auto server = new TcpServer(port);
     server->start_listening();
 }

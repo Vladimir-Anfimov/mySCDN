@@ -19,7 +19,9 @@ add_executable(
         DTO/CacheUpsertDto.h
         BusinessLayer/SearchService.h
         BusinessLayer/SearchService.cpp
-        Infrastructure/RecurrentPing.h)
+        Infrastructure/RecurrentPing.h
+        Infrastructure/DeliveryNetwork.h
+        Infrastructure/DeliveryNetwork.cpp)
 
 find_package(TinyHelp REQUIRED)
 include_directories(${LIBHELP_INCLUDE_DIR})

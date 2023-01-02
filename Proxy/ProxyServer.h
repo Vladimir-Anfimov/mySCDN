@@ -16,6 +16,9 @@ class ProxyServer: public Server {
     std::vector<Node> nodes;
     std::mutex mutex_nodes;
     int round_robin_index = 0;
+
+    std::string get_available_nodes_string();
+
 public:
     ProxyServer(int port);
 };

@@ -5,18 +5,24 @@
 using namespace Utils::Print;
 
 DatabaseContext::DatabaseContext() {
-    if(!std::filesystem::exists(DATABASE_PATH))
+
+    if(port == 0)
+        handle_error("Set database port first");
+
+    sprintf(db_path, DATABASE_PATH_FORMAT, port);
+
+    if(!std::filesystem::exists(db_path))
     {
         handle_log("Db does not exist so it will be created");
-        if(-1 == open(DATABASE_PATH.c_str(), O_RDWR | O_CREAT | O_TRUNC, 0777))
+        if(-1 == open(db_path, O_RDWR | O_CREAT | O_TRUNC, 0777))
             throw std::runtime_error("Error when trying to create the database");
         try {
             create_tables_setup();
         }
         catch (const std::exception& ex)
         {
-            if(std::filesystem::exists(DATABASE_PATH))
-                std::filesystem::remove(DATABASE_PATH);
+            if(std::filesystem::exists(db_path))
+                std::filesystem::remove(db_path);
             handle_error("%s", ex.what());
         }
     }
@@ -34,7 +40,7 @@ void DatabaseContext::create_tables_setup() {
 }
 
 void DatabaseContext::open_connection() {
-    if(sqlite3_open(DATABASE_PATH.c_str(), &connection) != SQLITE_OK)
+    if(sqlite3_open(db_path, &connection) != SQLITE_OK)
     {
         close_connection();
         throw std::runtime_error("Error: Cannot open database: " +

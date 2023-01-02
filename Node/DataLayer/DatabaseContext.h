@@ -5,12 +5,14 @@
 #include <memory>
 #include <filesystem>
 #include <fcntl.h>
+#include <climits>
 
 class DatabaseContext {
 private:
     char *error_message = nullptr;
-    inline const static std::string DATABASE_PATH = "./node_sql.db";
+    inline const static char *const DATABASE_PATH_FORMAT = "./node_sql_port_%d.db";
     void create_tables_setup();
+    char db_path[PATH_MAX];
 protected:
     sqlite3* connection;
     void open_connection();
@@ -18,6 +20,7 @@ protected:
     void execute(const std::string& command);
 public:
     DatabaseContext();
+    inline static int port = 0;
 };
 
 

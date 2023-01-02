@@ -20,14 +20,18 @@ std::string HttpCommunication::extract_content(const std::string &message) {
     if(!is_http_message(message)) {
         throw std::runtime_error("Request path is not correctly formulated for a HTTP request.");
     }
-    std::size_t index = 5;
-    for(;index<message.size();index++)
+
+    std::size_t last_index = message.find("HTTP/1.1")-1;
+    while(last_index >= 0)
     {
-        if(message[index] == ' ')
-            break;
+        if(message[last_index] == ' ')
+            last_index--;
         else
-            content.push_back(message[index]);
+            break;
     }
+
+    for(std::size_t index = 5; index <= last_index;index++)
+        content.push_back(message[index]);
     return content;
 }
 
