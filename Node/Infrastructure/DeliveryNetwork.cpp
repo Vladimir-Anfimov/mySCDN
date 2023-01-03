@@ -5,6 +5,7 @@
 #include <TcpCommunication.h>
 #include "StandardCommunication.h"
 #include "Print.h"
+#include "../DataLayer/CacheRepository.h"
 
 using namespace Utils::Print;
 
@@ -35,6 +36,7 @@ void DeliveryNetwork::update_network_nodes(std::string &ports) {
         }
     }
     std::lock_guard<std::mutex> nodes_lock(network_nodes_mutex);
+    delete_cache_from_disconnected_nodes(new_network_nodes);
     network_nodes = new_network_nodes;
 
     handle_logR("External network nodes(ports): %s", network_nodes.empty() ?
@@ -66,4 +68,28 @@ void DeliveryNetwork::publish_new_information(const std::string &command) {
         std::string response = communication.read_message();
         handle_logB("Reading information from node %d: %s", port_node, response.c_str());
     }
+}
+
+void DeliveryNetwork::delete_cache_from_disconnected_nodes(const std::vector<PortType>& new_network_nodes) {
+    auto missing = std::vector<PortType>();
+    for(const auto& node_port : network_nodes)
+    {
+        if(std::find(new_network_nodes.begin(), new_network_nodes.end(), node_port) == new_network_nodes.end())
+            missing.push_back(node_port);
+    }
+    std::thread([missing]{
+        auto repository = new CacheRepository();
+        for(const auto& node_port : missing)
+        {
+           try {
+               repository->remove("port", node_port);
+               handle_log("Deleted all external data from port %d", node_port);
+           }
+           catch (std::exception& ex)
+           {
+               handle_warning("Failed to remove external data from port %d: %s",
+                              node_port, ex.what());
+           }
+        }
+    }).detach();
 }

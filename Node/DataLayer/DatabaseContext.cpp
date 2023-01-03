@@ -52,7 +52,7 @@ void DatabaseContext::open_connection() {
         throw std::runtime_error("Error: Cannot open database: " +
                                  std::string(sqlite3_errmsg(connection)));
     }
-    handle_log("Database has opened successfully");
+//    handle_log("Database has opened successfully");
 }
 
 void DatabaseContext::close_connection() {

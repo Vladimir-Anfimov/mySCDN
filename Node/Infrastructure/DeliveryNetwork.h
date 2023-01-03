@@ -10,14 +10,15 @@ class DeliveryNetwork {
     DeliveryNetwork() = default;
     static inline std::mutex network_nodes_mutex;
 
+    void delete_cache_from_disconnected_nodes(const std::vector<PortType>& new_network_nodes);
     static std::string get_available_nodes_string();
 
 public:
     static DeliveryNetwork* get_instance();
-    static void delete_network_nodes();
+    void delete_network_nodes();
     DeliveryNetwork(DeliveryNetwork&) = delete;
     void operator=(const DeliveryNetwork&) = delete;
-    static void update_network_nodes(std::string& ports);
+    void update_network_nodes(std::string& ports);
     static inline PortType current_node_port = 0;
-    static void publish_new_information(const std::string& command);
+    void publish_new_information(const std::string& command);
 };

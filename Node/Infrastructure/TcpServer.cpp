@@ -5,11 +5,13 @@
 #include "../BusinessLayer/SearchService.h"
 #include "./RecurrentPing.h"
 #include "../BusinessLayer/UploadService.h"
+#include "RecurrentDeleteOutdatedCache.h"
 
 using namespace Utils::Print;
 
 TcpServer::TcpServer(int node_port, int proxy_port): Server(node_port) {
     recurrent_ping(node_port, proxy_port);
+    recurrent_delete_outdated_cache();
 }
 
 void TcpServer::process_event(ConnectionType client) {

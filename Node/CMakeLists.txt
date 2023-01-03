@@ -23,7 +23,7 @@ add_executable(
         Infrastructure/DeliveryNetwork.cpp
         BusinessLayer/UploadService.h
         BusinessLayer/UploadService.cpp
-        DTO/ExternalCache.h DTO/CacheDto.cpp DTO/CacheUpsertDto.cpp DTO/ExternalCache.cpp BusinessLayer/InitialiseService.h BusinessLayer/InitialiseService.cpp)
+        DTO/ExternalCache.h DTO/CacheDto.cpp DTO/CacheUpsertDto.cpp DTO/ExternalCache.cpp BusinessLayer/InitialiseService.h BusinessLayer/InitialiseService.cpp Infrastructure/RecurrentDeleteOutdatedCache.h)
 
 find_package(TinyHelp REQUIRED)
 include_directories(${LIBHELP_INCLUDE_DIR})

@@ -142,5 +142,4 @@ void CacheRepository::remove(const std::string& param_name, const T& value, cons
 
     std::string sql_command = "DELETE FROM cache WHERE " + param_name + sign + temporary_value + ";";
     execute(sql_command);
-    handle_log("Cache item with value %s has been deleted successfully.", temporary_value.c_str());
 }
