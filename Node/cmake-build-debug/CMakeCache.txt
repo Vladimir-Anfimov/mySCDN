@@ -224,15 +224,6 @@ Node_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Node_SOURCE_DIR:STATIC=/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node
 
-//Value Computed by CMake
-Proxy_BINARY_DIR:STATIC=/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node/cmake-build-debug
-
-//Value Computed by CMake
-Proxy_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Proxy_SOURCE_DIR:STATIC=/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Node
-
 //Path to a library.
 TINYHELP_LIBRARY:FILEPATH=/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
 

@@ -19,4 +19,5 @@ public:
     void operator=(const DeliveryNetwork&) = delete;
     void update_network_nodes(std::string& ports);
     static inline PortType current_node_port = 0;
+    void publish_new_information(const std::string& command);
 };

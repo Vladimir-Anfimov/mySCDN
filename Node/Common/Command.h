@@ -1,6 +1,7 @@
 #pragma once
 #include "StandardCommunication.h"
 #include <string>
+#include "../DTO/CacheUpsertDto.h"
 #include <cstring>
 
 class Command {
@@ -30,6 +31,16 @@ public:
     static bool is_upload(const std::string& command)
     {
         return starts_with(command, StandardCommunication::Upload);
+    }
+
+    static bool is_purge_and_inform(const std::string& command)
+    {
+        return starts_with(command, StandardCommunication::PurgeAndInform);
+    }
+
+    static bool is_initialise(const std::string& command)
+    {
+        return starts_with(command, StandardCommunication::Initialise);
     }
 };
 

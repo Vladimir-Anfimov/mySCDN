@@ -1,5 +1,8 @@
 #include "Client.h"
 #include <iostream>
+#include "Print.h"
+
+using namespace Utils::Print;
 
 Client::Client(int server_port): server_port(server_port) {
     if((socket_descriptor = socket(AF_INET, SOCK_STREAM, 0)) == -1)
@@ -20,7 +23,10 @@ ConnectionType Client::get_connection() const {
 }
 
 void Client::shutdown_connection() {
-    if(shutdown(socket_descriptor, SHUT_RDWR) == -1)
-        std::runtime_error("Error when trying to shutdown client class connection.");
+    shutdown(socket_descriptor, SHUT_RDWR);
+}
+
+Client::~Client() {
+    shutdown_connection();
 }
 

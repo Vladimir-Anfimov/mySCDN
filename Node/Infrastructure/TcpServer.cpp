@@ -4,6 +4,7 @@
 #include "../Common/Command.h"
 #include "../BusinessLayer/SearchService.h"
 #include "./RecurrentPing.h"
+#include "../BusinessLayer/UploadService.h"
 
 using namespace Utils::Print;
 
@@ -19,6 +20,7 @@ void TcpServer::process_event(ConnectionType client) {
 
         std::string response = handle_request_command(message);
 
+        handle_logG("Response: %s\n", response.c_str());
         communication.write_message(response);
     }
     catch (std::exception& exp)
@@ -32,8 +34,26 @@ void TcpServer::process_event(ConnectionType client) {
 std::string TcpServer::handle_request_command(const std::string& command) {
     if(Command::is_search(command))
     {
-        auto *search_service = new SearchService();
+        auto search_service = new SearchService();
         return search_service->find_content(command);
     }
+    if(Command::is_upload(command))
+    {
+        auto *upload_service = new UploadService();
+        upload_service->upload_cache_item(command);
+        return "Cache item successfully cached.";
+    }
+    if(Command::is_purge_and_inform(command))
+    {
+        auto *upload_service = new UploadService();
+        upload_service->purge_and_update_external_cache(command);
+        return "Cache item was successfully purged and inserted as a reference to another node.";
+    }
+    if(Command::is_initialise(command))
+    {
+        auto *upload_service = new UploadService();
+        return upload_service->initialise_external_node();
+    }
+
     throw std::runtime_error("Command " + command + " not supported.");
 }

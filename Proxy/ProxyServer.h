@@ -17,6 +17,8 @@ class ProxyServer: public Server {
     std::mutex mutex_nodes;
     int round_robin_index = 0;
 
+    bool check_node_existence(int search_port);
+
     std::string get_available_nodes_string();
 
 public:

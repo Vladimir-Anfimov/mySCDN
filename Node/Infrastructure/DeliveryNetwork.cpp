@@ -1,6 +1,8 @@
 #include "DeliveryNetwork.h"
 #include <sstream>
 #include <cstring>
+#include <Client.h>
+#include <TcpCommunication.h>
 #include "StandardCommunication.h"
 #include "Print.h"
 
@@ -52,4 +54,18 @@ std::string DeliveryNetwork::get_available_nodes_string() {
 void DeliveryNetwork::delete_network_nodes() {
     std::lock_guard<std::mutex> nodes_lock(network_nodes_mutex);
     network_nodes.clear();
+}
+
+void DeliveryNetwork::publish_new_information(const std::string &command) {
+    std::lock_guard<std::mutex> lock_guard(network_nodes_mutex);
+    for(const auto& port_node : network_nodes)
+    {
+        auto client = new Client(port_node);
+        auto communication = TcpCommunication(client->get_connection());
+        communication.write_message(command);
+        handle_logB("Writing information to node %d: %s", port_node, command.c_str());
+
+        std::string response = communication.read_message();
+        handle_logB("Reading information from node %d: %s", port_node, response.c_str());
+    }
 }

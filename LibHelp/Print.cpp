@@ -43,5 +43,34 @@ namespace Utils::Print {
         handle_print("WARNING", msg, args);
         va_end(args);
     }
+
+    void handle_logG(const char *msg, ...) {
+        va_list args;
+        printf("\033[0;32m");
+        va_start(args, msg);
+        handle_print("LOG", msg, args);
+        va_end(args);
+        printf("\033[0;38m");
+    }
+
+    void handle_logR(const char *msg, ...) {
+        va_list args;
+        printf("\033[0;31m");
+        va_start(args, msg);
+        handle_print("LOG", msg, args);
+        va_end(args);
+        printf("\033[0;38m");
+    }
+
+    void handle_logB(const char *msg, ...)
+    {
+        va_list args;
+        printf("\033[0;34m");
+        va_start(args, msg);
+        handle_print("LOG", msg, args);
+        va_end(args);
+        printf("\033[0;38m");
+    }
+
 }
 

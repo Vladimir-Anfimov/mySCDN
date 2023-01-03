@@ -1,10 +1,13 @@
 # ninja log v5
-6	741	1672668344810816800	CMakeFiles/Node.dir/Infrastructure/DeliveryNetwork.cpp.o	ab31c820124972dd
-7	964	1672668417159774700	CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o	25604b4303154262
-5	913	1672573645985737300	CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o	7fe3d294acbebbff
-1	94	1672671954488225000	build.ninja	a9d84f86683a99e9
+14	1494	1672697093367484200	CMakeFiles/Node.dir/Infrastructure/DeliveryNetwork.cpp.o	ab31c820124972dd
+5	983	1672697234971933900	CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o	25604b4303154262
+6	1035	1672697235023094300	CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o	7fe3d294acbebbff
+1	94	1672749982552462200	build.ninja	a9d84f86683a99e9
 965	1121	1672668417315850000	Node	b3e710505e542875
-5	905	1672573645977362900	CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o	5fc42d12bb30dd8b
+8	742	1672697129255387300	CMakeFiles/Node.dir/DTO/CacheDto.cpp.o	73e75d20e0351db8
+13	1108	1672697092980547200	CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o	5fc42d12bb30dd8b
+7	689	1672697234677920700	CMakeFiles/Node.dir/DTO/ExternalCache.cpp.o	cb81a953d355819b
+7	699	1672697234687110300	CMakeFiles/Node.dir/DTO/CacheUpsertDto.cpp.o	c1d7900e01ee026f
 3	637	1672321554956986600	CMakeFiles/Node.dir/TcpServer.cpp.o	36e430b700041679
-5	1135	1672668345204256400	CMakeFiles/Node.dir/main.cpp.o	4ad8c39935d709ea
+13	1443	1672697093316298500	CMakeFiles/Node.dir/main.cpp.o	4ad8c39935d709ea
 4	805	1672318010415351100	CMakeFiles/Node.dir/Database.cpp.o	5f338cb80ae2143

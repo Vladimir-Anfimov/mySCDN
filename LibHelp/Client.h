@@ -12,4 +12,5 @@ public:
     explicit Client(int server_port);
     ConnectionType get_connection() const;
     void shutdown_connection();
+    ~Client();
 };

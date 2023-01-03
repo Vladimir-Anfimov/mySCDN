@@ -4,10 +4,11 @@
 #include "StandardCommunication.h"
 #include "Client.h"
 #include "Command.h"
-#include <time.h>
+#include <ctime>
 #include <chrono>
 #include <thread>
 #include <iostream>
+#include "AdminQuery.h"
 
 using namespace Utils::Print;
 
@@ -43,9 +44,20 @@ void ProxyServer::process_event(ConnectionType client) {
 std::string ProxyServer::process_command(TcpCommunication* communication, std::string command, bool http) {
     if(http)
     {
-        auto command_node = std::string(StandardCommunication::Search) +
-                                  HttpCommunication::extract_content(command);
-        return round_robin_process(command_node);
+        command = HttpCommunication::extract_content(command);
+
+        if(AdminQuery::is_admin_query(command))
+        {
+            auto admin_query = AdminQuery(command);
+            if(!check_node_existence(admin_query.get_port()))
+                throw std::runtime_error("Node with port "+
+                      std::to_string(admin_query.get_port()) +" does not exists in the network.");
+            return admin_query.send_upload_request();
+        }
+        else // in this case is a simple query search for an url
+            command = std::string(StandardCommunication::Search) + command;
+
+        return round_robin_process(command);
     }
 
     if(Command::is_ping(command))
@@ -64,21 +76,15 @@ std::string ProxyServer::round_robin_process(const std::string &command) {
     nodes_lock.unlock();
 
     //communication with a node
-    auto tcp_client = Client(node_port);
-    auto *tcp_communication = new TcpCommunication(tcp_client.get_connection());
+    auto tcp_client = new Client(node_port);
+    auto *tcp_communication = new TcpCommunication(tcp_client->get_connection());
     tcp_communication->write_message(command);
 
-    printf("\033[0;32m");
-    handle_log("Writing request(%s) to node(port %d)", command.c_str(), node_port);
-    printf("\033[0;37m");
-
+    handle_logG("Writing request(%s) to node(port %d)", command.c_str(), node_port);
     std::string response = tcp_communication->read_message();
 
-    printf("\033[0;32m");
-    handle_log("Reading response(%s) from node(port %d)", response.c_str(), node_port);
-    printf("\033[0;37m");
+    handle_logG("Reading response(%s) from node(port %d)", response.c_str(), node_port);
 
-    tcp_client.shutdown_connection();
     return response;
 }
 
@@ -126,9 +132,7 @@ void ProxyServer::recurrent_node_check() {
             else
                 message += get_available_nodes_string();
 
-            printf("\033[0;31m");
-            handle_log("%s", message.c_str());
-            printf("\033[0;37m");
+            handle_logR("%s", message.c_str());
 
             std::this_thread::sleep_for(std::chrono::seconds (interval_seconds));
         }
@@ -141,6 +145,20 @@ std::string ProxyServer::get_available_nodes_string() {
     for(const auto& node : nodes)
         nodes_list_string+= std::to_string(node.port) +" ";
     return nodes_list_string;
+}
+
+bool ProxyServer::check_node_existence(int search_port) {
+    bool exists = false;
+    std::lock_guard<std::mutex> lock_guard(mutex_nodes);
+    for(const auto& node : nodes)
+    {
+        if(node.port == search_port)
+        {
+            exists = true;
+            break;
+        }
+    }
+    return exists;
 }
 
 

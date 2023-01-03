@@ -14,14 +14,16 @@ add_executable(
         Infrastructure/TcpServer.cpp
         DataLayer/CacheRepository.h
         DTO/CacheDto.h
-        Common/Mapper.h
         Common/Command.h
         DTO/CacheUpsertDto.h
         BusinessLayer/SearchService.h
         BusinessLayer/SearchService.cpp
         Infrastructure/RecurrentPing.h
         Infrastructure/DeliveryNetwork.h
-        Infrastructure/DeliveryNetwork.cpp)
+        Infrastructure/DeliveryNetwork.cpp
+        BusinessLayer/UploadService.h
+        BusinessLayer/UploadService.cpp
+        DTO/ExternalCache.h DTO/CacheDto.cpp DTO/CacheUpsertDto.cpp DTO/ExternalCache.cpp BusinessLayer/InitialiseService.h BusinessLayer/InitialiseService.cpp)
 
 find_package(TinyHelp REQUIRED)
 include_directories(${LIBHELP_INCLUDE_DIR})

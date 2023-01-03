@@ -84,6 +84,41 @@ build CMakeFiles/Node.dir/Infrastructure/DeliveryNetwork.cpp.o: CXX_COMPILER__No
   OBJECT_DIR = CMakeFiles/Node.dir
   OBJECT_FILE_DIR = CMakeFiles/Node.dir/Infrastructure
 
+build CMakeFiles/Node.dir/BusinessLayer/UploadService.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/BusinessLayer/UploadService.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/BusinessLayer/UploadService.cpp.o.d
+  FLAGS = -pthread -Os -DNDEBUG -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/BusinessLayer
+
+build CMakeFiles/Node.dir/DTO/CacheDto.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/DTO/CacheDto.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/DTO/CacheDto.cpp.o.d
+  FLAGS = -pthread -Os -DNDEBUG -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/DTO
+
+build CMakeFiles/Node.dir/DTO/CacheUpsertDto.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/DTO/CacheUpsertDto.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/DTO/CacheUpsertDto.cpp.o.d
+  FLAGS = -pthread -Os -DNDEBUG -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/DTO
+
+build CMakeFiles/Node.dir/DTO/ExternalCache.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/DTO/ExternalCache.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/DTO/ExternalCache.cpp.o.d
+  FLAGS = -pthread -Os -DNDEBUG -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/DTO
+
+build CMakeFiles/Node.dir/BusinessLayer/InitialiseService.cpp.o: CXX_COMPILER__Node_MinSizeRel /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/Node/BusinessLayer/InitialiseService.cpp || cmake_object_order_depends_target_Node
+  DEP_FILE = CMakeFiles/Node.dir/BusinessLayer/InitialiseService.cpp.o.d
+  FLAGS = -pthread -Os -DNDEBUG -fdiagnostics-color=always -std=gnu++2a
+  INCLUDES = -I"/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/include"
+  OBJECT_DIR = CMakeFiles/Node.dir
+  OBJECT_FILE_DIR = CMakeFiles/Node.dir/BusinessLayer
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Node
@@ -92,7 +127,7 @@ build CMakeFiles/Node.dir/Infrastructure/DeliveryNetwork.cpp.o: CXX_COMPILER__No
 #############################################
 # Link the executable Node
 
-build Node: CXX_EXECUTABLE_LINKER__Node_MinSizeRel CMakeFiles/Node.dir/main.cpp.o CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o CMakeFiles/Node.dir/Infrastructure/DeliveryNetwork.cpp.o | /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
+build Node: CXX_EXECUTABLE_LINKER__Node_MinSizeRel CMakeFiles/Node.dir/main.cpp.o CMakeFiles/Node.dir/DataLayer/DatabaseContext.cpp.o CMakeFiles/Node.dir/Infrastructure/TcpServer.cpp.o CMakeFiles/Node.dir/BusinessLayer/SearchService.cpp.o CMakeFiles/Node.dir/Infrastructure/DeliveryNetwork.cpp.o CMakeFiles/Node.dir/BusinessLayer/UploadService.cpp.o CMakeFiles/Node.dir/DTO/CacheDto.cpp.o CMakeFiles/Node.dir/DTO/CacheUpsertDto.cpp.o CMakeFiles/Node.dir/DTO/ExternalCache.cpp.o CMakeFiles/Node.dir/BusinessLayer/InitialiseService.cpp.o | /media/vladimir/Volum$ nou/Teme/ANUL$ II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a
   FLAGS = -pthread -Os -DNDEBUG
   LINK_LIBRARIES = "/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/tinyhelp/lib/tinyhelp.a"  -lsqlite3
   OBJECT_DIR = CMakeFiles/Node.dir
