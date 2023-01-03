@@ -54,6 +54,12 @@ std::string TcpServer::handle_request_command(const std::string& command) {
         auto *upload_service = new UploadService();
         return upload_service->initialise_external_node();
     }
+    if(Command::is_new_duplicate(command))
+    {
+        auto *upload_service = new UploadService();
+        upload_service->upload_data_about_new_duplicate_in_network(command);
+        return "Information about the new duplicated successfully added.";
+    }
 
     throw std::runtime_error("Command " + command + " not supported.");
 }

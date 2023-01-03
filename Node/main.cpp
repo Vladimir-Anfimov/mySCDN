@@ -12,8 +12,15 @@ int main(int argc, char* argv[]) {
         handle_error("Script format call: [node_port:int] [proxy_port:int] [origin_port:int]");
     int node_port = atoi(argv[1]), proxy_port = atoi(argv[2]), origin_port = atoi(argv[3]);
 
-    DeliveryNetwork::current_node_port = node_port;
+    std::string db = "node_sql_port_" + std::to_string(node_port) +".db";
+    if(std::filesystem::exists(db))
+    {
+        handle_log("Database %s was initially deleted.", db.c_str());
+        std::filesystem::remove(db);
+    }
+
     DatabaseContext::port = node_port;
+    DeliveryNetwork::current_node_port = node_port;
 
     if(node_port != origin_port)
     {

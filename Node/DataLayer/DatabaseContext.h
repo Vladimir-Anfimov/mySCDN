@@ -22,5 +22,3 @@ public:
     DatabaseContext();
     inline static int port = 0;
 };
-
-

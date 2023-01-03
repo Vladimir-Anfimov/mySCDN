@@ -9,4 +9,5 @@ struct StandardCommunication
     constexpr static char PurgeAndInform[] = "___purge_and_inform___";
     constexpr static char Initialise[] = "___initialise___";
     constexpr static char Splitter[] = "___split___";
+    constexpr static char NewDuplicate[] = "___new_duplicate___";
 };

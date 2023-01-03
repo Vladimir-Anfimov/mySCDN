@@ -3,6 +3,7 @@
 #include "SearchService.h"
 #include "../DataLayer/CacheRepository.h"
 #include "../Common/Command.h"
+#include "../Infrastructure/DeliveryNetwork.h"
 
 SearchService::SearchService() {}
 
@@ -36,11 +37,17 @@ std::string SearchService::find_content(const std::string &command) {
     std::string response = communication.read_message();
     handle_logB("Reading response from node %d: %s", external_cache_dto->port, response.c_str());
 
-    auto new_cache_item = CacheUpsertDto(ExternalCache(response));
+    auto new_cache_item = CacheUpsertDto(response);
     new_cache_item.port = DatabaseContext::port;
 
     repository = new CacheRepository();
     repository->insert(new_cache_item);
+    delete repository;
+
+    auto *delivery_network = DeliveryNetwork::get_instance();
+    std::string command_nodes = StandardCommunication::NewDuplicate +
+                                ExternalCache(new_cache_item).to_query_string();
+    delivery_network->publish_new_information(command_nodes);
 
     return response;
 }

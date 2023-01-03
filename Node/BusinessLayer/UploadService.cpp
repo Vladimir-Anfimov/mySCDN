@@ -24,7 +24,6 @@ void UploadService::purge_and_update_external_cache(const std::string& command) 
     auto *repository = new CacheRepository();
     repository->remove("url", external_cache.url);
     repository->insert(upsert_cache);
-    delete repository;
 }
 
 std::string UploadService::initialise_external_node() {
@@ -36,4 +35,12 @@ std::string UploadService::initialise_external_node() {
         response += item.to_query_string() + std::string(StandardCommunication::Splitter);
     }
     return response;
+}
+
+void UploadService::upload_data_about_new_duplicate_in_network(const std::string &command) {
+    auto external_cache = ExternalCache(command);
+    CacheUpsertDto upsert_cache = CacheUpsertDto(external_cache);
+
+    auto *repository = new CacheRepository();
+    repository->insert(upsert_cache);
 }

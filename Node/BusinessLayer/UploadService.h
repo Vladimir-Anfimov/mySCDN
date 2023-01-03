@@ -9,6 +9,7 @@ class UploadService {
 public:
     explicit UploadService();
     void upload_cache_item(const std::string& command);
+    void upload_data_about_new_duplicate_in_network(const std::string& command);
     void purge_and_update_external_cache(const std::string& command);
     std::string initialise_external_node();
 };

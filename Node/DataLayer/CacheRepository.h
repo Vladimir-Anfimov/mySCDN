@@ -21,13 +21,12 @@ public:
 
     std::vector<ExternalCache> select_all();
 
-    void update(const CacheUpsertDto &cache_item);
     explicit CacheRepository();
     ~CacheRepository();
 };
 
 
-inline CacheRepository::CacheRepository(): DatabaseContext() {
+inline CacheRepository::CacheRepository() {
     open_connection();
 }
 
@@ -44,22 +43,6 @@ inline void CacheRepository::insert(const CacheUpsertDto &cache_item) {
     execute(sql_command);
 }
 
-
-inline void CacheRepository::update(const CacheUpsertDto &cache_item) {
-    char sql_command[200];
-    sprintf(sql_command,
-            "UPDATE cache SET"
-            " url = '%s',"
-            " available_until = %d,"
-            " content = '%s' "
-            " WHERE port = %d;",
-            cache_item.url.c_str(),
-            cache_item.available_until,
-            cache_item.content.c_str(),
-            cache_item.port
-    );
-    execute(sql_command);
-}
 
 inline CacheRepository::~CacheRepository() {
     close_connection();

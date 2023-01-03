@@ -37,10 +37,10 @@ void DatabaseContext::create_tables_setup() {
         handle_log("Table cache could not be dropped.");
     }
     std::string create_tables = "CREATE TABLE cache(id INTEGER PRIMARY KEY,"
-                                         "available_until INTEGER NOT NULL,"
-                                         "url TEXT NOT NULL,"
-                                         "content TEXT NOT NULL,"
-                                         "port INTEGER NOT NULL);";
+                                "available_until INTEGER NOT NULL,"
+                                "url TEXT NOT NULL,"
+                                "content TEXT NOT NULL,"
+                                "port INTEGER NOT NULL);";
     execute(create_tables);
     close_connection();
 }
@@ -64,9 +64,8 @@ void DatabaseContext::execute(const std::string& command) {
     {
         sqlite3_free(error_message);
         throw std::runtime_error("Command " + command + " failed to execute with error" +
-                                std::string(error_message));
+                                 std::string(error_message));
     }
 
     handle_log("Command %s executed successfully.", command.c_str());
 }
-

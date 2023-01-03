@@ -42,5 +42,10 @@ public:
     {
         return starts_with(command, StandardCommunication::Initialise);
     }
+
+    static bool is_new_duplicate(const std::string& command)
+    {
+        return starts_with(command, StandardCommunication::NewDuplicate);
+    }
 };
 

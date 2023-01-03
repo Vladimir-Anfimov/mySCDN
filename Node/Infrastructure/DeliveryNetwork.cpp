@@ -37,14 +37,12 @@ void DeliveryNetwork::update_network_nodes(std::string &ports) {
     std::lock_guard<std::mutex> nodes_lock(network_nodes_mutex);
     network_nodes = new_network_nodes;
 
-    printf("\033[0;31m");
-    handle_log("External network nodes(ports): %s", network_nodes.empty() ?
+    handle_logR("External network nodes(ports): %s", network_nodes.empty() ?
                     "None" : get_available_nodes_string().c_str());
-    printf("\033[0;37m");
 }
 
 std::string DeliveryNetwork::get_available_nodes_string() {
-    std::string nodes_list_string = "";
+    std::string nodes_list_string;
 
     for(const auto& port : network_nodes)
         nodes_list_string+= std::to_string(port) +" ";

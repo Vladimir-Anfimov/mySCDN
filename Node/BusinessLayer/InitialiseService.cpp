@@ -33,9 +33,9 @@ void InitialiseService::add_to_database(const std::string& response) {
         start = last + delimiter.size();
     }
 
-    auto repository = CacheRepository();
+    auto repository = new CacheRepository();
     for(const auto& cache_item : external_cache)
     {
-        repository.insert(CacheUpsertDto(cache_item));
+        repository->insert(CacheUpsertDto(cache_item));
     }
 }
