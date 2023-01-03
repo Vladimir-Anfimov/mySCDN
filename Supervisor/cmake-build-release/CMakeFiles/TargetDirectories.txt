@@ -1,3 +1,0 @@
-/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Supervisor/cmake-build-release/CMakeFiles/Supervisor.dir
-/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Supervisor/cmake-build-release/CMakeFiles/edit_cache.dir
-/media/vladimir/Volum nou/Teme/ANUL II/Retele/mySCDN/Supervisor/cmake-build-release/CMakeFiles/rebuild_cache.dir
